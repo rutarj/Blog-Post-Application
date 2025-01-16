@@ -1,0 +1,29 @@
+<div class="author">
+  <h1 class="author__heading">Hello, I am Rutarj</h1>
+  <p class="author__body">An Aspiring Software developer.</p>
+</div>
+<div class="image_container" style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); max-width: 100%; height: auto; overflow: hidden; transform: scale(1); transition: transform 0.3s ease-in-out;">
+  <img src="/img/imageSoftware.jpg" alt="Image description" style="height: 500px; width: auto; border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 15px rgba(0, 0, 0, 0.1)'"/>
+</div>
+
+
+
+<section class="articles">
+  <h2 class="articles__heading">Latest Posts</h2>
+
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+    <li>
+      <a href="/post/<%= post._id %>">
+        <span><%= post.title %></span>
+        <span class="article-list__date"
+          ><%= post.createdAt.toDateString() %></span
+        >
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+  <% if (nextPage !== null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+  <% } %>
+</section>
